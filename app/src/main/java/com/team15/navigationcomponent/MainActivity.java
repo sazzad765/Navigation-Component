@@ -19,6 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class MainActivity extends AppCompatActivity {
 
     private FloatingActionButton fabBTN;
+    NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +32,14 @@ public class MainActivity extends AppCompatActivity {
 
         navView.setBackground(null);
 
-        NavController navController = Navigation.findNavController(this,R.id.my_nav_host_fragment);
+        navController = Navigation.findNavController(this,R.id.my_nav_host_fragment);
         NavigationUI.setupWithNavController(navView,navController);
+        NavigationUI.setupActionBarWithNavController(this,navController);
+    }
 
-        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-            @Override
-            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                MainActivity.this.setTitle(destination.getLabel());
-            }
-        });
+    @Override
+    public boolean onSupportNavigateUp() {
+        navController.navigateUp();
+        return super.onSupportNavigateUp();
     }
 }

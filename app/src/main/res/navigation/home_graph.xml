@@ -9,7 +9,11 @@
         android:id="@+id/menu_home"
         android:name="com.team15.navigationcomponent.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_menu_home_to_action_favorite"
+            app:destination="@id/action_notification" />
+    </fragment>
     <fragment
         android:id="@+id/menu_movie"
         android:name="com.team15.navigationcomponent.MovieFragment"
@@ -34,4 +38,9 @@
         android:name="com.team15.navigationcomponent.MovieDetailsFragment"
         android:label="Details"
         tools:layout="@layout/fragment_movie_details" />
+    <fragment
+        android:id="@+id/action_notification"
+        android:name="com.team15.navigationcomponent.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
 </navigation>

@@ -28,7 +28,7 @@ public class MovieFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         final Bundle bundle = new Bundle();
-        bundle.putBoolean("test_boolean", true);
+        bundle.putString("text", "test");
 
         final NavController navController = Navigation.findNavController(getActivity(), R.id.my_nav_host_fragment);
         view.findViewById(R.id.button).setOnClickListener(v -> {
